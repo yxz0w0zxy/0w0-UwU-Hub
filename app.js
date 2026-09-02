@@ -6,7 +6,6 @@ const plugins = [
     site: "https://nexustoons.com/",
     domain: "nexustoons.com",
     icon: "https://nexustoons.com/icon.png",
-    repository: "https://github.com/yxz0w0zxy/NexusToons",
     adapter: "AES JSON API",
     tags: ["Manhwa", "Manhua"]
   },
@@ -17,7 +16,6 @@ const plugins = [
     site: "https://plumacomics.cloud/",
     domain: "plumacomics.cloud",
     icon: "https://plumacomics.cloud/api/img/branding/icon_1782023547094.png",
-    repository: "",
     adapter: "HTML Series",
     tags: ["Manhwa", "Manhua"]
   }
@@ -29,14 +27,10 @@ const template = document.querySelector("#pluginCardTemplate");
 const searchInput = document.querySelector("#searchInput");
 const filters = document.querySelector("#filters");
 const emptyState = document.querySelector("#emptyState");
-const installDialog = document.querySelector("#installDialog");
-const installStatus = document.querySelector("#installStatus");
 const toast = document.querySelector("#toast");
 const catalogUrl = new URL("catalog.json", window.location.href).href;
 let activeFilter = "Todos";
 let toastTimer;
-
-document.querySelector("#catalogUrl").textContent = catalogUrl;
 
 function showToast(message) {
   toast.textContent = message;
@@ -45,36 +39,20 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 3200);
 }
 
-async function copyCatalogUrl() {
-  try {
-    await navigator.clipboard.writeText(catalogUrl);
-    showToast("URL do catálogo copiada.");
-    installStatus.textContent = "URL copiada. Agora cole em Catálogos externos no Nyxovira.";
-  } catch {
-    installStatus.textContent = "Selecione e copie manualmente a URL acima.";
-  }
-}
-
 function installPlugin(plugin) {
   const bridge = globalThis.NyxoviraAndroidBridge || globalThis.ArchiveInkAndroidBridge;
-  if (bridge && typeof bridge.installCommunityPlugin === "function") {
-    try {
-      const result = JSON.parse(bridge.installCommunityPlugin(catalogUrl, JSON.stringify({ id: plugin.id })) || "{}");
-      showToast(result.message || (result.success ? "Plugin instalado." : "Não foi possível instalar."));
-      return;
-    } catch {
-      showToast("Não foi possível concluir a instalação direta.");
-    }
+  if (!bridge || typeof bridge.installCommunityPlugin !== "function") {
+    showToast("Abra este site pelo Nyxovira em Sites → Sites externos para instalar.");
+    return;
   }
-  installStatus.textContent = `Use o catálogo no Nyxovira para instalar ${plugin.name}.`;
-  installDialog.showModal();
-}
 
-document.querySelector("#copyDialogUrl").addEventListener("click", copyCatalogUrl);
-document.querySelector("#closeInstallDialog").addEventListener("click", () => installDialog.close());
-installDialog.addEventListener("click", event => {
-  if (event.target === installDialog) installDialog.close();
-});
+  try {
+    const result = JSON.parse(bridge.installCommunityPlugin(catalogUrl, JSON.stringify({ id: plugin.id })) || "{}");
+    showToast(result.message || (result.success ? "Plugin instalado." : "Não foi possível instalar."));
+  } catch {
+    showToast("Não foi possível concluir a instalação direta.");
+  }
+}
 
 for (const label of labels) {
   const button = document.createElement("button");

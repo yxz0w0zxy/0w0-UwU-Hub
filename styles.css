@@ -54,7 +54,7 @@ h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.045em; 
 .filter { height: 30px; border: 1px solid var(--line); border-radius: 8px; padding: 0 11px; background: rgba(255,255,255,.025); color: var(--muted); font-size: .72rem; font-weight: 750; cursor: pointer; transition: .2s; }
 .filter:hover { color: var(--text); border-color: rgba(189,108,255,.36); }
 .filter.is-active { border-color: transparent; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #1a0900; }
-.install-plugin, .catalog-url-row button { border: 0; border-radius: 9px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #14081d; font-weight: 850; cursor: pointer; white-space: nowrap; }
+.install-plugin { border: 0; border-radius: 9px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #14081d; font-weight: 850; cursor: pointer; white-space: nowrap; }
 
 .plugin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 340px)); justify-content: start; gap: 12px; }
 .plugin-card { position: relative; min-width: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: linear-gradient(145deg, rgba(189,108,255,.055), transparent 38%), var(--panel); backdrop-filter: blur(16px); transition: transform .22s, border-color .22s, box-shadow .22s; }
@@ -75,16 +75,6 @@ h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.045em; 
 .install-plugin { flex: 1; }
 .install-plugin:hover { filter: brightness(1.1); }
 .open-site { border: 1px solid var(--line); color: var(--muted); }
-.install-dialog { width: min(500px, calc(100% - 28px)); border: 1px solid rgba(189,108,255,.3); border-radius: 20px; padding: 26px; background: #130c1e; color: var(--text); box-shadow: 0 28px 100px rgba(0,0,0,.65); }
-.install-dialog::backdrop { background: rgba(4,2,7,.78); backdrop-filter: blur(7px); }
-.install-dialog img { margin-bottom: 17px; border-radius: 12px; }
-.install-dialog h2 { font-size: 1.55rem; }
-.install-dialog > p:not(.eyebrow):not(.install-status) { color: var(--muted); font-size: .84rem; line-height: 1.6; }
-.dialog-close { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,.04); color: var(--muted); font-size: 1.3rem; cursor: pointer; }
-.catalog-url-row { display: flex; gap: 7px; margin-top: 18px; }
-.catalog-url-row code { min-width: 0; flex: 1; overflow: hidden; border: 1px solid var(--line); border-radius: 9px; padding: 10px; background: #0a070e; color: #cfa0ef; font-size: .7rem; text-overflow: ellipsis; white-space: nowrap; }
-.catalog-url-row button { padding: 0 14px; }
-.install-status { min-height: 18px; margin: 12px 0 0; color: var(--green); font-size: .75rem; font-weight: 750; }
 .toast { position: fixed; z-index: 20; right: 20px; bottom: 20px; max-width: min(360px, calc(100% - 40px)); transform: translateY(30px); border: 1px solid rgba(189,108,255,.3); border-radius: 12px; padding: 12px 15px; background: #1a1025; color: var(--text); font-size: .76rem; opacity: 0; pointer-events: none; transition: .22s; box-shadow: 0 16px 50px rgba(0,0,0,.45); }
 .toast.is-visible { transform: translateY(0); opacity: 1; }
 .empty-state { padding: 70px 20px; text-align: center; color: var(--muted); }
