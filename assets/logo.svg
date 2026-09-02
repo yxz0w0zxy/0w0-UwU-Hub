@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>NyxoHub</title>
+  <defs><linearGradient id="g" x1="9" y1="7" x2="56" y2="59" gradientUnits="userSpaceOnUse"><stop stop-color="#ffc43d"/><stop offset="1" stop-color="#ff642a"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="#17101f"/>
+  <path d="M17 46V18h7l16 17V18h7v28h-6.5L24 28.4V46z" fill="url(#g)"/>
+  <circle cx="48" cy="17" r="4" fill="#fff8ed"/>
+</svg>
