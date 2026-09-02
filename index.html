@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#08060d">
-  <meta name="description" content="Catálogo pessoal de plugins para leitura no Nyxovira.">
+  <meta name="description" content="Plugins NexusToons e Pluma Comics para Nyxovira.">
   <link rel="nyxovira-plugin-catalog" href="catalog.json">
   <title>0w0 UwU -_o — Catálogo de plugins</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
@@ -19,27 +19,27 @@
       <img src="assets/logo.svg" alt="" width="38" height="38">
       <span><strong>0w0</strong> UwU <b>-_o</b></span>
     </a>
-    <span class="private-pill"><i></i> Catálogo pessoal</span>
+    <span class="private-pill"><i></i> 0w0 online</span>
   </header>
 
   <main id="top" class="page-shell">
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">Plugin Hub</p>
-        <h1 id="page-title">Seus plugins,<br><span>em um só lugar.</span></h1>
-        <p class="hero-copy">Uma biblioteca simples para consultar os conectores de leitura usados no Nyxovira.</p>
+        <p class="eyebrow">0w0 Sources</p>
+        <h1 id="page-title">NexusToons<br><span>+ Pluma Comics</span></h1>
+        <p class="hero-copy">Fontes prontas para navegar e baixar obras pelo Nyxovira.</p>
       </div>
       <div class="hero-stat" aria-label="Quantidade de plugins">
         <strong id="pluginCount">0</strong>
-        <span>plugins no catálogo</span>
+          <span>fontes disponíveis</span>
       </div>
     </section>
 
     <section class="catalog" aria-labelledby="catalog-title">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Biblioteca</p>
-          <h2 id="catalog-title">Catálogo de plugins</h2>
+          <p class="eyebrow">Plugins</p>
+          <h2 id="catalog-title">Escolha uma fonte</h2>
         </div>
         <p id="resultCount" class="result-count" aria-live="polite"></p>
       </div>
@@ -48,16 +48,15 @@
         <label class="search-box">
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.15a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/></svg>
           <span class="sr-only">Buscar plugins</span>
-          <input id="searchInput" type="search" placeholder="Buscar por nome, site ou categoria…" autocomplete="off">
-          <kbd>Ctrl K</kbd>
+          <input id="searchInput" type="search" placeholder="Buscar plugin…" autocomplete="off">
         </label>
         <div id="filters" class="filters" aria-label="Filtrar catálogo"></div>
       </div>
 
       <aside class="catalog-callout">
         <div>
-          <strong>Catálogo externo do Nyxovira</strong>
-          <span>Adicione uma vez no aplicativo e instale ou atualize qualquer plugin por lá.</span>
+          <strong>Instalar pelo Nyxovira</strong>
+          <span>Cadastre esta página em Sites → Catálogos externos.</span>
         </div>
         <button id="copyCatalogButton" type="button">Copiar URL do catálogo</button>
       </aside>
@@ -73,7 +72,7 @@
 
   <footer>
     <span>0w0 UwU -_o</span>
-    <span>Catálogo pessoal para Nyxovira</span>
+    <span>NexusToons · Pluma Comics · +18</span>
   </footer>
 
   <template id="pluginCardTemplate">
@@ -94,7 +93,6 @@
       <div class="actions">
         <button class="install-plugin" type="button">Instalar</button>
         <a class="open-site" target="_blank" rel="noopener noreferrer">Site <span>↗</span></a>
-        <a class="source-link" target="_blank" rel="noopener noreferrer">Código-fonte</a>
       </div>
     </article>
   </template>

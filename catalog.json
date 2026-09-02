@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "0w0 UwU -_o",
-  "description": "Catálogo pessoal de plugins de leitura para Nyxovira.",
+  "description": "NexusToons e Pluma Comics no Nyxovira.",
   "plugins": [
     {
       "id": "nexustoons",
@@ -12,7 +12,7 @@
       "manifest_url": "plugins/nexustoons/plugin.json",
       "icon_url": "https://nexustoons.com/icon.png",
       "site_url": "https://nexustoons.com/",
-      "tags": ["portuguese", "manga", "manhwa", "manhua"],
+      "tags": ["manga", "manhwa", "manhua", "adult"],
       "status": "active"
     },
     {
@@ -24,7 +24,7 @@
       "manifest_url": "plugins/plumacomics/plugin.json",
       "icon_url": "https://plumacomics.cloud/api/img/branding/icon_1782023547094.png",
       "site_url": "https://plumacomics.cloud/",
-      "tags": ["portuguese", "manga", "manhwa", "manhua"],
+      "tags": ["manga", "manhwa", "manhua", "adult"],
       "status": "active"
     }
   ]

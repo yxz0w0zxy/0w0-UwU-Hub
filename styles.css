@@ -57,7 +57,6 @@ h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -.045em; 
 .search-box svg { width: 19px; fill: none; stroke: var(--muted); stroke-width: 1.8; }
 .search-box input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: .88rem; }
 .search-box input::placeholder { color: #776c83; }
-kbd { border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; color: #776c83; font-size: .62rem; white-space: nowrap; }
 .filters { display: flex; flex-wrap: wrap; gap: 7px; }
 .filter { height: 36px; border: 1px solid var(--line); border-radius: 10px; padding: 0 13px; background: rgba(255,255,255,.025); color: var(--muted); font-size: .75rem; font-weight: 750; cursor: pointer; transition: .2s; }
 .filter:hover { color: var(--text); border-color: rgba(189,108,255,.36); }
@@ -91,9 +90,6 @@ kbd { border: 1px solid var(--line); border-radius: 5px; padding: 3px 6px; color
 .install-plugin { flex: 1; }
 .install-plugin:hover { filter: brightness(1.1); }
 .open-site { border: 1px solid var(--line); color: var(--muted); }
-.source-link { border: 1px solid var(--line); color: var(--muted); }
-.source-link:hover { border-color: rgba(189,108,255,.42); color: var(--text); }
-.source-link[hidden] { display: none; }
 .install-dialog { width: min(500px, calc(100% - 28px)); border: 1px solid rgba(189,108,255,.3); border-radius: 20px; padding: 26px; background: #130c1e; color: var(--text); box-shadow: 0 28px 100px rgba(0,0,0,.65); }
 .install-dialog::backdrop { background: rgba(4,2,7,.78); backdrop-filter: blur(7px); }
 .install-dialog img { margin-bottom: 17px; border-radius: 12px; }
@@ -122,16 +118,31 @@ footer span:first-child { color: var(--muted); font-weight: 800; }
   .hero-copy { font-size: .92rem; }
   .toolbar { align-items: stretch; flex-direction: column; }
   .catalog-callout { align-items: stretch; flex-direction: column; }
-  .plugin-grid { grid-template-columns: 1fr; }
+  .plugin-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
   .search-box { min-width: 0; }
+  .plugin-card { border-radius: 12px; padding: 10px; }
+  .card-top { align-items: flex-start; gap: 8px; }
+  .icon-wrap { flex-basis: 38px; width: 38px; height: 38px; border-radius: 9px; }
+  .title-line { align-items: flex-start; flex-direction: column; gap: 3px; }
+  .title-line h3 { max-width: 100%; font-size: .82rem; }
+  .status { font-size: .52rem; }
+  .domain { margin-top: 3px; font-size: .58rem; }
+  .description { min-height: 50px; margin: 10px 0 8px; font-size: .66rem; line-height: 1.35; }
+  .tags { gap: 3px; }
+  .tag { padding: 2px 5px; font-size: .5rem; }
+  .details { flex-wrap: wrap; gap: 3px 8px; margin-top: 9px; font-size: .55rem; }
+  .actions { gap: 4px; margin-top: 10px; padding-top: 9px; }
+  .actions a, .actions button { height: 30px; padding: 0 6px; font-size: .6rem; }
 }
 
 @media (max-width: 440px) {
   .private-pill { padding: 7px 9px; font-size: .67rem; }
   .section-head { align-items: start; flex-direction: column; }
-  .plugin-card { padding: 17px; }
-  .title-line { align-items: start; flex-direction: column; gap: 5px; }
-  .actions { flex-direction: column; }
+  .plugin-card { padding: 8px; }
+  .card-top { gap: 6px; }
+  .icon-wrap { flex-basis: 34px; width: 34px; height: 34px; }
+  .description { font-size: .61rem; }
+  .actions { flex-direction: row; }
   footer { flex-direction: column; }
 }
 

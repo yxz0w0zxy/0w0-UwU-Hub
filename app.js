@@ -9,7 +9,7 @@ const plugins = [
     repository: "https://github.com/yxz0w0zxy/NexusToons",
     adapter: "AES JSON API",
     description: "Conector de leitura para navegar e baixar obras publicadas na NexusToons.",
-    tags: ["Português", "Mangá", "Manhwa", "Manhua"]
+    tags: ["Mangá", "Manhwa", "Manhua", "+18"]
   },
   {
     id: "plumacomics",
@@ -21,7 +21,7 @@ const plugins = [
     repository: "",
     adapter: "HTML Series",
     description: "Conector de leitura para acessar as obras disponíveis na Pluma Comics.",
-    tags: ["Português", "Mangá", "Manhwa", "Manhua"]
+    tags: ["Mangá", "Manhwa", "Manhua", "+18"]
   }
 ];
 
@@ -133,9 +133,6 @@ function render() {
     const site = card.querySelector(".open-site");
     site.href = plugin.site;
     site.setAttribute("aria-label", `Abrir o site ${plugin.name}`);
-    const source = card.querySelector(".source-link");
-    source.hidden = !plugin.repository;
-    if (plugin.repository) source.href = plugin.repository;
     card.querySelector(".install-plugin").addEventListener("click", () => installPlugin(plugin));
     grid.append(card);
   }
@@ -145,11 +142,4 @@ function render() {
 }
 
 searchInput.addEventListener("input", render);
-document.addEventListener("keydown", event => {
-  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-    event.preventDefault();
-    searchInput.focus();
-  }
-});
-
 render();
