@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#08060d">
   <meta name="description" content="Catálogo pessoal de plugins para leitura no Nyxovira.">
+  <link rel="nyxovira-plugin-catalog" href="catalog.json">
   <title>0w0 UwU -_o — Catálogo de plugins</title>
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -53,6 +54,14 @@
         <div id="filters" class="filters" aria-label="Filtrar catálogo"></div>
       </div>
 
+      <aside class="catalog-callout">
+        <div>
+          <strong>Catálogo externo do Nyxovira</strong>
+          <span>Adicione uma vez no aplicativo e instale ou atualize qualquer plugin por lá.</span>
+        </div>
+        <button id="copyCatalogButton" type="button">Copiar URL do catálogo</button>
+      </aside>
+
       <div id="pluginGrid" class="plugin-grid" aria-live="polite"></div>
       <div id="emptyState" class="empty-state" hidden>
         <div>⌕</div>
@@ -83,11 +92,27 @@
         <span class="adapter"></span>
       </div>
       <div class="actions">
-        <a class="open-site" target="_blank" rel="noopener noreferrer">Abrir site <span>↗</span></a>
+        <button class="install-plugin" type="button">Instalar</button>
+        <a class="open-site" target="_blank" rel="noopener noreferrer">Site <span>↗</span></a>
         <a class="source-link" target="_blank" rel="noopener noreferrer">Código-fonte</a>
       </div>
     </article>
   </template>
+
+  <dialog id="installDialog" class="install-dialog">
+    <button id="closeInstallDialog" class="dialog-close" type="button" aria-label="Fechar">×</button>
+    <img src="assets/logo.svg" alt="" width="48" height="48">
+    <p class="eyebrow">Instalar no Nyxovira</p>
+    <h2>Catálogo pronto para usar</h2>
+    <p>No Nyxovira, abra <strong>Sites → Catálogos externos</strong>, cole a URL abaixo e toque em <strong>Adicionar</strong>. Depois use o botão Instalar do plugin.</p>
+    <div class="catalog-url-row">
+      <code id="catalogUrl"></code>
+      <button id="copyDialogUrl" type="button">Copiar</button>
+    </div>
+    <p id="installStatus" class="install-status" aria-live="polite"></p>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
 </body>

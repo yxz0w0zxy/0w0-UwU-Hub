@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "plumacomics",
+  "name": "Pluma Comics",
+  "version": "1.0.0",
+  "tags": [
+    "portuguese",
+    "manhua",
+    "manhwa",
+    "manga"
+  ],
+  "match": {
+    "hosts": [
+      "plumacomics.cloud"
+    ]
+  },
+  "browser": {
+    "home_url": "https://plumacomics.cloud/",
+    "icon_url": "https://plumacomics.cloud/api/img/branding/icon_1782023547094.png",
+    "icon_mode": "pinned",
+    "short_label": "Pluma",
+    "download_target_script_file": "browser/download_target.js"
+  },
+  "parser": {
+    "adapter": "html_series",
+    "base_url": "https://plumacomics.cloud"
+  }
+}

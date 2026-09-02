@@ -33,9 +33,54 @@ const filters = document.querySelector("#filters");
 const resultCount = document.querySelector("#resultCount");
 const pluginCount = document.querySelector("#pluginCount");
 const emptyState = document.querySelector("#emptyState");
+const installDialog = document.querySelector("#installDialog");
+const installStatus = document.querySelector("#installStatus");
+const toast = document.querySelector("#toast");
+const catalogUrl = new URL("catalog.json", window.location.href).href;
 let activeFilter = "Todos";
+let toastTimer;
 
 pluginCount.textContent = plugins.length;
+document.querySelector("#catalogUrl").textContent = catalogUrl;
+
+function showToast(message) {
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 3200);
+}
+
+async function copyCatalogUrl() {
+  try {
+    await navigator.clipboard.writeText(catalogUrl);
+    showToast("URL do catálogo copiada.");
+    installStatus.textContent = "URL copiada. Agora cole em Catálogos externos no Nyxovira.";
+  } catch {
+    installStatus.textContent = "Selecione e copie manualmente a URL acima.";
+  }
+}
+
+function installPlugin(plugin) {
+  const bridge = globalThis.NyxoviraAndroidBridge || globalThis.ArchiveInkAndroidBridge;
+  if (bridge && typeof bridge.installCommunityPlugin === "function") {
+    try {
+      const result = JSON.parse(bridge.installCommunityPlugin(catalogUrl, JSON.stringify({ id: plugin.id })) || "{}");
+      showToast(result.message || (result.success ? "Plugin instalado." : "Não foi possível instalar."));
+      return;
+    } catch {
+      showToast("Não foi possível concluir a instalação direta.");
+    }
+  }
+  installStatus.textContent = `Use o catálogo no Nyxovira para instalar ${plugin.name}.`;
+  installDialog.showModal();
+}
+
+document.querySelector("#copyCatalogButton").addEventListener("click", copyCatalogUrl);
+document.querySelector("#copyDialogUrl").addEventListener("click", copyCatalogUrl);
+document.querySelector("#closeInstallDialog").addEventListener("click", () => installDialog.close());
+installDialog.addEventListener("click", event => {
+  if (event.target === installDialog) installDialog.close();
+});
 
 for (const label of labels) {
   const button = document.createElement("button");
@@ -91,6 +136,7 @@ function render() {
     const source = card.querySelector(".source-link");
     source.hidden = !plugin.repository;
     if (plugin.repository) source.href = plugin.repository;
+    card.querySelector(".install-plugin").addEventListener("click", () => installPlugin(plugin));
     grid.append(card);
   }
 

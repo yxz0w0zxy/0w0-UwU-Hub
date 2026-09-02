@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "nexustoons",
+  "name": "NexusToons",
+  "version": "1.0.7",
+  "tags": [
+    "portuguese",
+    "manga",
+    "manhwa",
+    "manhua"
+  ],
+  "match": {
+    "hosts": [
+      "nexustoons.com"
+    ]
+  },
+  "browser": {
+    "home_url": "https://nexustoons.com/",
+    "icon_url": "https://nexustoons.com/icon.png",
+    "icon_mode": "pinned",
+    "short_label": "Nexus",
+    "download_target_script_file": "browser/download_target.js"
+  },
+  "parser": {
+    "adapter": "aes_json_api",
+    "base_url": "https://nexustoons.com",
+    "api_base": "https://nexustoons.com",
+    "work_api_path_template": "/api/manga/{slug}",
+    "chapter_api_path_template": "/api/chapter/{chapter}",
+    "public_work_path_template": "/manga/{slug}",
+    "public_chapter_path_template": "/ler/{slug}/{chapter}",
+    "encrypted_response_format": "rotating_sbox_json",
+    "rotating_sbox_keys": [
+      "ee47fe201c45929db9c9a9212d9c38571965a43326323d63a48f60ac29afebd6",
+      "e68082cdd86e5f59365c31e53259327623c393b752cd79f5ebf4a6c01ce5daa5",
+      "e2bc4ff2ef9c3713b124114e7f7f87a2e14657faaccc9edcd077e6f4073c4773",
+      "771bd0234efb5cec754b953e3678e0d6b2552dedf387328e9d7600dac151b649",
+      "d6cd99f678b363376b4c722cc3b13b102c11959ff1ee8a312cb730f9c9142b1a"
+    ],
+    "request_headers": {
+      "X-Requested-With": "XMLHttpRequest"
+    },
+    "chapter_array_keys": [
+      "chapters"
+    ],
+    "page_array_keys": [
+      "pages",
+      "images"
+    ],
+    "page_image_keys": [
+      "imageUrl",
+      "url",
+      "src",
+      "path"
+    ]
+  }
+}
