@@ -30,8 +30,6 @@ const grid = document.querySelector("#pluginGrid");
 const template = document.querySelector("#pluginCardTemplate");
 const searchInput = document.querySelector("#searchInput");
 const filters = document.querySelector("#filters");
-const resultCount = document.querySelector("#resultCount");
-const pluginCount = document.querySelector("#pluginCount");
 const emptyState = document.querySelector("#emptyState");
 const installDialog = document.querySelector("#installDialog");
 const installStatus = document.querySelector("#installStatus");
@@ -40,7 +38,6 @@ const catalogUrl = new URL("catalog.json", window.location.href).href;
 let activeFilter = "Todos";
 let toastTimer;
 
-pluginCount.textContent = plugins.length;
 document.querySelector("#catalogUrl").textContent = catalogUrl;
 
 function showToast(message) {
@@ -75,7 +72,6 @@ function installPlugin(plugin) {
   installDialog.showModal();
 }
 
-document.querySelector("#copyCatalogButton").addEventListener("click", copyCatalogUrl);
 document.querySelector("#copyDialogUrl").addEventListener("click", copyCatalogUrl);
 document.querySelector("#closeInstallDialog").addEventListener("click", () => installDialog.close());
 installDialog.addEventListener("click", event => {
@@ -137,7 +133,6 @@ function render() {
     grid.append(card);
   }
 
-  resultCount.textContent = `${visible.length} ${visible.length === 1 ? "resultado" : "resultados"}`;
   emptyState.hidden = visible.length > 0;
 }
 
