@@ -1,4 +1,4 @@
-# NyxoHub
+# 0w0 UwU -_o
 
 Catálogo pessoal e estático dos plugins de leitura usados no Nyxovira.
 

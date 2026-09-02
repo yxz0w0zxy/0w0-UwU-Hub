@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>NyxoHub</title>
-  <defs><linearGradient id="g" x1="9" y1="7" x2="56" y2="59" gradientUnits="userSpaceOnUse"><stop stop-color="#ffc43d"/><stop offset="1" stop-color="#ff642a"/></linearGradient></defs>
-  <rect width="64" height="64" rx="16" fill="#17101f"/>
-  <path d="M17 46V18h7l16 17V18h7v28h-6.5L24 28.4V46z" fill="url(#g)"/>
-  <circle cx="48" cy="17" r="4" fill="#fff8ed"/>
+  <title>0w0 UwU -_o</title>
+  <defs><linearGradient id="g" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse"><stop stop-color="#d58aff"/><stop offset="1" stop-color="#7440d4"/></linearGradient></defs>
+  <rect width="64" height="64" rx="16" fill="#130c1e"/>
+  <path d="m13 26 3-14 11 8a25 25 0 0 1 10 0l11-8 3 14c3 4 5 9 5 15 0 10-10 15-24 15S8 51 8 41c0-6 2-11 5-15Z" fill="url(#g)"/>
+  <path d="M18 36c3-3 7-3 10 0m8 0c3-3 7-3 10 0" fill="none" stroke="#130c1e" stroke-width="3" stroke-linecap="round"/>
+  <path d="m28 44 4 3 4-3" fill="none" stroke="#130c1e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m14 19 8 5-7 3Zm36 0-8 5 7 3Z" fill="#482374"/>
 </svg>
