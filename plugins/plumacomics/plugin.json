@@ -4,10 +4,8 @@
   "name": "Pluma Comics",
   "version": "1.0.0",
   "tags": [
-    "portuguese",
-    "manhua",
     "manhwa",
-    "manga"
+    "manhua"
   ],
   "match": {
     "hosts": [

@@ -8,8 +8,7 @@ const plugins = [
     icon: "https://nexustoons.com/icon.png",
     repository: "https://github.com/yxz0w0zxy/NexusToons",
     adapter: "AES JSON API",
-    description: "Conector de leitura para navegar e baixar obras publicadas na NexusToons.",
-    tags: ["Mangá", "Manhwa", "Manhua", "+18"]
+    tags: ["Manhwa", "Manhua"]
   },
   {
     id: "plumacomics",
@@ -20,8 +19,7 @@ const plugins = [
     icon: "https://plumacomics.cloud/api/img/branding/icon_1782023547094.png",
     repository: "",
     adapter: "HTML Series",
-    description: "Conector de leitura para acessar as obras disponíveis na Pluma Comics.",
-    tags: ["Mangá", "Manhwa", "Manhua", "+18"]
+    tags: ["Manhwa", "Manhua"]
   }
 ];
 
@@ -104,7 +102,7 @@ function render() {
   const query = normalize(searchInput.value.trim());
   const visible = plugins.filter(plugin => {
     const filterMatch = activeFilter === "Todos" || plugin.tags.includes(activeFilter);
-    const haystack = normalize([plugin.name, plugin.domain, plugin.description, ...plugin.tags].join(" "));
+    const haystack = normalize([plugin.name, plugin.domain, ...plugin.tags].join(" "));
     return filterMatch && haystack.includes(query);
   });
 
@@ -117,7 +115,6 @@ function render() {
     icon.addEventListener("error", () => { icon.src = "assets/logo.svg"; }, { once: true });
     card.querySelector("h3").textContent = plugin.name;
     card.querySelector(".domain").textContent = plugin.domain;
-    card.querySelector(".description").textContent = plugin.description;
     card.querySelector(".version").textContent = `Versão ${plugin.version}`;
     card.querySelector(".adapter").textContent = plugin.adapter;
     for (const tag of plugin.tags) {
